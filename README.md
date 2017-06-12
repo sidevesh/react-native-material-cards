@@ -36,3 +36,10 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
   </CardAction>
 </Card>
 ```
+### ToDo
+* Add Media Card
+* Add Colored Cards
+* Add cards with side media
+* Add cards with avatar in header
+
+PRs are welcome :)
