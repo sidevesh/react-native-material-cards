@@ -5,7 +5,7 @@ import {
   View,
   Image
 } from 'react-native';
-import Touchable from './src';
+import { Touchable } from './src';
 
 class Card extends Component {
 
