@@ -138,7 +138,7 @@ class CardButton extends Component {
     const newStyle = this.props.style || {};
     let directionStyle = this.props.inColumn===true ? styles.CardButtonInColumn : styles.CardButtonInRow;
     return (
-      <Touchable style={[directionStyle, newStyle]}>
+      <Touchable style={[directionStyle, newStyle]} onPress={()=>{this.props.onPress()}}>
         <Text style={this.props.color!==undefined ? [styles.buttonText, {color: this.props.color}] : styles.buttonText}>{this.props.title.toUpperCase()}</Text>
       </Touchable>      
     );
