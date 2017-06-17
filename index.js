@@ -95,8 +95,8 @@ class Card extends Component {
         }
       })
     }
-    //If mediaSource is supplied to Card, pass isDark is true to children
-    if(this.props.mediaSource!==undefined) {
+    //If mediaSource or isDark(true) is supplied to Card, pass isDark is true to children
+    if((this.props.mediaSource!==undefined)||(this.props.isDark)) {
       returnChildren = React.Children.map(returnChildren, (child) => {
         if((child.type.name==="CardContent")||(child.type.name==="CardTitle")||(child.type.name==="CardAction")) {
           return React.cloneElement(child, {
