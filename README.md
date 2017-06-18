@@ -1,5 +1,7 @@
 # React-Native-Material-Cards
-A material design card component, customizable and versatile.
+A material design card component, customizable and versatile. 
+
+![Images](http://i.imgur.com/iDym7bI.png) 
 
 See [Google Material Design](https://material.io/guidelines/components/cards.html) for more info on Cards.
 
