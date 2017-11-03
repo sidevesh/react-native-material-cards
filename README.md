@@ -21,19 +21,27 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 Then insert the card in your code:
 ```js
 <Card>
-  <CardImage source={{uri: 'http://placehold.it/480x270'}} title="Above all i am here"/>
-  <CardTitle title="This is title" subtitle="This is sub title"/>
-  <CardContent text="Your device will reboot in few seconds once successful, be patient meanwhile"/>
-  <CardAction separator={true} inColumn={false}>
+  <CardImage 
+    source={{uri: 'http://placehold.it/480x270'}} 
+    title="Above all i am here"
+  />
+  <CardTitle 
+    title="This is a title" 
+    subtitle="This is subtitle"
+   />
+  <CardContent text="Your device will reboot in few seconds once successful, be patient meanwhile" />
+  <CardAction 
+    separator={true} 
+    inColumn={false}>
     <CardButton
       onPress={() => {}}
       title="Push"
-      color='blue'
+      color="blue"
     />
     <CardButton
       onPress={() => {}}
       title="Later"
-      color='blue'
+      color="blue"
     />
   </CardAction>
 </Card>
