@@ -27,7 +27,7 @@ export default class CardAction extends Component {
     const newStyle = this.props.style || {};
     let directionStyle = this.props.inColumn===true ? styles.cardActionInColumn : styles.cardActionInRow;
     return (
-      <View style={(this.props.seperator)&&(!this.props.isDark) ? [directionStyle, styles.seperatorAdd, newStyle] : [directionStyle, newStyle]}>
+      <View style={(this.props.separator)&&(!this.props.isDark) ? [directionStyle, styles.separatorAdd, newStyle] : [directionStyle, newStyle]}>
         {this.renderChildren()}
       </View>
     );
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignSelf: 'stretch'
   },
-  seperatorAdd: {
+  separatorAdd: {
     borderTopColor: '#E9E9E9',
     borderTopWidth: 1
   }
