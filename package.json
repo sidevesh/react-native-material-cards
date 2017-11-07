@@ -26,6 +26,9 @@
     "url": "https://github.com/SiDevesh/React-Native-Material-Cards/issues"
   },
   "homepage": "https://github.com/SiDevesh/React-Native-Material-Cards#readme",
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",
@@ -35,7 +38,7 @@
     "eslint-plugin-react": "^7.0.0"
   },
   "peerDependencies": {
-    "react": ">=15.3.1",
+    "react": ">=15.3.1 || >=16.0.0-beta.5",
     "react-native": "*"
   }
 }
