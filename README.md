@@ -9,6 +9,7 @@ See [Google Material Design](https://material.io/guidelines/components/cards.htm
 
 ```sh
 npm install --save react-native-material-cards
+npm install --save prop-types
 ```
 
 ## Basic Usage
