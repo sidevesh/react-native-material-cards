@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import {
   ViewPropTypes,
   TouchableOpacity,
-  TouchableNativeFeedback,
-  ViewPropTypes
+  TouchableNativeFeedback
 } from 'react-native';
 import {
   IS_ANDROID,
