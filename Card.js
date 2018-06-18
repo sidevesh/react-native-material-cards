@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  ImageBackground
 } from 'react-native';
 
 export default class Card extends Component {
@@ -114,11 +115,11 @@ export default class Card extends Component {
     const newStyle = this.props.style || {};
     if(this.props.mediaSource!==undefined) {
       return (
-        <Image borderRadius={2} source={this.props.mediaSource} resizeMode="stretch" style={[styles.mediaContainer, styles.mediaCard, newStyle]}>
+        <ImageBackground borderRadius={2} source={this.props.mediaSource} resizeMode="stretch" style={[styles.mediaContainer, styles.mediaCard, newStyle]}>
           <View style={[styles.mediaInsetContainer, {marginTop: this.state.calc_offset_height}]} onLayout={(e)=>{this.setState({calc_offset_height: (e.nativeEvent.layout.width-e.nativeEvent.layout.height)});}}>
             {this.renderChildren()}
           </View>
-        </Image>
+        </ImageBackground>
       );
     }
     else {
