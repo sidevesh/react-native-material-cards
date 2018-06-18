@@ -4,7 +4,7 @@ import {
   ViewPropTypes,
   TouchableOpacity,
   TouchableNativeFeedback,
-  ViewPropTypes
+  View
 } from 'react-native';
 import {
   IS_ANDROID,
