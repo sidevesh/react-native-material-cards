@@ -78,6 +78,7 @@ Then insert the card in your code:
 | `style` | `object` | The style object to be merged with the default style | `undefined` |
 | `resizeMode` | `string` | Determines how to resize the image when the frame doesn't match the raw image dimensions | `stretch` |
 | `resizeMethod` | `string` | Resize the image when the image's dimensions differ from the image view's dimensions. | `resize` |
+| `singleLineTitle` | `boolean` | Set to true if you want the title to be one line, redacted with ellipses | `undefined` |
 
 ## CardAction Component Options
 | Prop        | Type           | Effect  | Default Value |
