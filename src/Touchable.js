@@ -12,12 +12,13 @@ import {
   noop,
 } from './utils';
 
-const Touchable = ({ onPress, style, children }) => {
+const Touchable = ({ onPress, style, children, useForeground }) => {
   if (IS_ANDROID && !IS_LT_LOLLIPOP) {
     return (
       <TouchableNativeFeedback
         background={TouchableNativeFeedback.SelectableBackground()}
         onPress={onPress}
+        useForeground={useForeground}
       >
         <View
           style={style}

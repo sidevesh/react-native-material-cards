@@ -6,6 +6,7 @@ import {
   Image,
   ImageBackground
 } from 'react-native';
+import { Touchable } from './src';
 
 export default class Card extends Component {
 
@@ -120,6 +121,17 @@ export default class Card extends Component {
             {this.renderChildren()}
           </View>
         </ImageBackground>
+      );
+    }
+    else if (this.props.onPress) {
+      return (
+        <Touchable
+          style={[styles.container, styles.card, newStyle]}
+          onPress={this.props.onPress}
+          useForeground={true}
+        >
+          {this.renderChildren()}
+        </Touchable>
       );
     }
     else {
