@@ -25,14 +25,13 @@ export default class CardImage extends Component {
         <View style={[styles.imageContainer, {height: this.props.imageHeight || this.state.calc_height}]} onLayout={(e) => {this.setState({componentHeight: e.nativeEvent.layout.height, componentWidth: e.nativeEvent.layout.width});}}>
           <Component source={this.props.source} resizeMethod={this.props.resizeMethod || "resize"} style={[StyleSheet.absoluteFill, { width: this.props.imageWidth || this.state.componentWidth, height: this.props.imageHeight || this.state.componentHeight }, this.props.imageStyle]} />
         </View>
-        <View styles={styles.imageContainer}>
-          {this.props.title!==undefined && this.props.singleLineTitle == true &&
-            <Text numberOfLines={1} style={styles.imageTitleText}>{this.props.title}</Text>
-          }
-          {this.props.title!==undefined && (this.props.singleLineTitle == false || this.props.singleLineTitle === undefined) &&
-            <Text style={styles.imageTitleText}>{this.props.title}</Text>
-          }
-        </View>
+
+        {this.props.title!==undefined && this.props.singleLineTitle == true &&
+          <Text numberOfLines={1} style={styles.imageTitleText}>{this.props.title}</Text>
+        }
+        {this.props.title!==undefined && (this.props.singleLineTitle == false || this.props.singleLineTitle === undefined) &&
+          <Text style={styles.imageTitleText}>{this.props.title}</Text>
+        }
 
       </View>
     );
@@ -46,9 +45,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
     alignSelf: 'stretch',
     marginBottom: 16,
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    overflow: "hidden"
+    alignItems: 'flex-end',
+    overflow: "hidden",
   },
   imageContainer: {
     position: "absolute",
@@ -56,15 +54,15 @@ const styles = StyleSheet.create({
     left: 0,
     flex: 1,
     flexDirection: 'column',
-    paddingRight: 16,
-    paddingLeft: 16,
-    paddingBottom: 16,
-    paddingTop: 16,
     justifyContent: 'flex-end',
     width: "100%"
   },
   imageTitleText: {
     fontSize: 24,
-    color: 'rgba(255 ,255 ,255 , 0.87)'
+    color: 'rgba(255 ,255 ,255 , 0.87)',
+    paddingRight: 16,
+    paddingLeft: 16,
+    paddingBottom: 16,
+    paddingTop: 16,
   }
 });
