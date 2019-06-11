@@ -15,15 +15,16 @@ export default class CardImage extends Component {
   }
   render () {
     const newStyle = this.props.style || {};
+    const imageTitleText = this.props.imageTitleText || {};
     return (
       <View style={[styles.cardImage, newStyle]} onLayout={(e)=>{this.setState({calc_height: e.nativeEvent.layout.width*9/16});}}>
 
         <ImageBackground source={this.props.source} resizeMode={this.props.resizeMode || "stretch"} resizeMethod={this.props.resizeMethod || "resize"} style={[styles.imageContainer,  {height: this.state.calc_height}]}>
           {this.props.title!==undefined && this.props.singleLineTitle == true &&
-            <Text numberOfLines={1} style={styles.imageTitleText}>{this.props.title}</Text>
+            <Text numberOfLines={1} style={[styles.imageTitleText, imageTitleText]}>{this.props.title}</Text>
           }
           {this.props.title!==undefined && (this.props.singleLineTitle == false || this.props.singleLineTitle === undefined) &&
-            <Text style={styles.imageTitleText}>{this.props.title}</Text>
+            <Text style={[styles.imageTitleText, imageTitleText]}>{this.props.title}</Text>
           }
           </ImageBackground>
 

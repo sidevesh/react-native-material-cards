@@ -9,8 +9,10 @@ import {
 export default class CardTitle extends Component {
   render () {
     const newStyle = this.props.style || {};
-    let titleStyle = [styles.titleText];
-    let subtitleStyle = [styles.subtitleText];
+    const titleStyleProp = this.props.titleStyleProp || {};
+    const subtitleStyleProp = this.props.subtitleStyleProp || {};
+    let titleStyle = [styles.titleText, titleStyleProp];
+    let subtitleStyle = [styles.subtitleText, subtitleStyleProp];
     if((this.props.title!==undefined)&&(this.props.subtitle!==undefined)&&(this.props.avatarSource===undefined)) {
       if(this.props.subtitleAbove===true) {
         subtitleStyle = [...subtitleStyle, {marginBottom: 12}];

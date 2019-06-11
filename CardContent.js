@@ -9,13 +9,15 @@ import {
 export default class CardContent extends Component {
   render () {
     const newStyle = this.props.style || {};
+    const avatarStyle = this.props.avatarStyle || {};
+    const textStyle = this.props.textStyle || {};
     return (
       <View style={[styles.cardContent, newStyle]}>
         {this.props.avatarSource!==undefined &&
-          <Image source={this.props.avatarSource} resizeMode="stretch" style={styles.avatarStyle} />
+          <Image source={this.props.avatarSource} resizeMode="stretch" style={[styles.avatarStyle, avatarStyle]} />
         }
         <View style={styles.CardContentTextCont}>
-          {this.props.text !== undefined ? <Text style={this.props.isDark ? [styles.contentText, styles.lightText] : styles.contentText}>{this.props.text}</Text> : this.props.children}
+          {this.props.text !== undefined ? <Text style={this.props.isDark ? [styles.contentText, styles.lightText, textStyle] : [styles.contentText, textStyle]}>{this.props.text}</Text> : this.props.children}
         </View>
       </View>
     );

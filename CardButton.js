@@ -8,10 +8,11 @@ import { Touchable } from './src';
 export default class CardButton extends Component {
   render() {
     const newStyle = this.props.style || {};
+    const textStyle = this.props.textStyle || {};
     let directionStyle = this.props.inColumn===true ? styles.CardButtonInColumn : styles.CardButtonInRow;
     return (
       <Touchable style={[directionStyle, newStyle]} onPress={()=>{this.props.onPress()}}>
-        <Text style={this.props.color!==undefined ? [styles.buttonText, {color: this.props.color}] : styles.buttonText}>{this.props.title.toUpperCase()}</Text>
+        <Text style={this.props.color!==undefined ? [styles.buttonText, textStyle, {color: this.props.color}] : [styles.buttonText, textStyle]}>{this.props.title.toUpperCase()}</Text>
       </Touchable>      
     );
   }
