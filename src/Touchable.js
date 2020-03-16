@@ -12,11 +12,12 @@ import {
   noop,
 } from './utils';
 
-const Touchable = ({ onPress, style, children }) => {
+const Touchable = ({ onPress, style, children, useForeground }) => {
   if (IS_ANDROID && !IS_LT_LOLLIPOP) {
     return (
       <TouchableNativeFeedback
         background={TouchableNativeFeedback.SelectableBackground()}
+        useForeground={useForeground}
         onPress={onPress}
       >
         <View
@@ -40,14 +41,16 @@ const Touchable = ({ onPress, style, children }) => {
 };
 
 Touchable.propTypes = {
-  onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
   style: ViewPropTypes.style,
+  useForeground: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
 Touchable.defaultProps = {
   onPress: noop,
-  style: {}
+  style: {},
+  useForeground: false,
 };
 
 export default Touchable;
