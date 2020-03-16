@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/SiDevesh/React-Native-Material-Cards#readme",
   "dependencies": {
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
