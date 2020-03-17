@@ -4,15 +4,20 @@ import {
   ViewPropTypes,
   TouchableOpacity,
   TouchableNativeFeedback,
-  View
+  View,
 } from 'react-native';
 import {
   IS_ANDROID,
   IS_LT_LOLLIPOP,
   noop,
-} from './utils';
+} from './constants';
 
-const Touchable = ({ onPress, style, children, useForeground }) => {
+const Touchable = ({
+  onPress,
+  style,
+  children,
+  useForeground,
+}) => {
   if (IS_ANDROID && !IS_LT_LOLLIPOP) {
     return (
       <TouchableNativeFeedback
@@ -28,16 +33,15 @@ const Touchable = ({ onPress, style, children, useForeground }) => {
       </TouchableNativeFeedback>
     );
   }
-  else {
-    return (
-      <TouchableOpacity
-        onPress={onPress}
-        style={style}
-      >
-        {children}
-      </TouchableOpacity>
-    );
-  }
+
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={style}
+    >
+      {children}
+    </TouchableOpacity>
+  );
 };
 
 Touchable.propTypes = {

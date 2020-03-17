@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
@@ -16,14 +16,14 @@ export default class CardAction extends Component {
         }
 
         return child;
-      })
+      });
     }
     return returnChildren;
   }
 
-  render () {
+  render() {
     const newStyle = this.props.style || {};
-    let directionStyle = this.props.inColumn ? styles.cardActionInColumn : styles.cardActionInRow;
+    const directionStyle = this.props.inColumn ? styles.cardActionInColumn : styles.cardActionInRow;
     return (
       <View
         style={this.props.separator && !this.props.isDark
@@ -35,7 +35,6 @@ export default class CardAction extends Component {
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -54,5 +53,5 @@ const styles = StyleSheet.create({
   separatorAddendum: {
     borderTopColor: '#E9E9E9',
     borderTopWidth: 1,
-  }
+  },
 });

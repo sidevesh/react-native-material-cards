@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
   Image,
 } from 'react-native';
-import { Touchable } from './src';
+import { Touchable } from './utils';
 
 const TouchableIfOnPress = ({ onPress, children }) => {
   if (onPress === undefined) {
@@ -14,7 +13,7 @@ const TouchableIfOnPress = ({ onPress, children }) => {
 
   return (
     <Touchable
-      useForeground={true}
+      useForeground
       onPress={onPress}
     >
       {children}
@@ -27,12 +26,12 @@ export default class Card extends Component {
     super(props);
     this.state = {
       calcOffsetHeight: 0,
-    }
+    };
   }
 
   renderChildren() {
     let returnChildren = this.props.children;
-    //If cardTitle is first component in Card, add 24 padding at top
+    // If cardTitle is first component in Card, add 24 padding at top
     if (returnChildren.length > 0 && returnChildren[0].type.name === 'CardTitle') {
       returnChildren = React.Children.map(returnChildren, (child) => {
         if (child.type.name === 'CardTitle') {
@@ -42,9 +41,9 @@ export default class Card extends Component {
         }
 
         return child;
-      })
+      });
     }
-    //If cardImage is first component in Card, set borderRadius for top edges
+    // If cardImage is first component in Card, set borderRadius for top edges
     if (returnChildren.length > 0 && returnChildren[0].type.name === 'CardImage') {
       returnChildren = React.Children.map(returnChildren, (child) => {
         if (child.type.name === 'CardImage') {
@@ -54,59 +53,56 @@ export default class Card extends Component {
         }
 
         return child;
-      })
+      });
     }
-    //If cardTitle comes after cardImage, remove bottom padding from cardImage
-    if (returnChildren.length >= 2 && returnChildren.map(child=> child.type.name).join('').includes('CardImageCardTitle')) {
+    // If cardTitle comes after cardImage, remove bottom padding from cardImage
+    if (returnChildren.length >= 2 && returnChildren.map(child => child.type.name).join('').includes('CardImageCardTitle')) {
       returnChildren = React.Children.map(returnChildren, (child) => {
         if (child.type.name === 'CardImage') {
           return React.cloneElement(child, {
-            style: {...child.props.style, marginBottom: 0}
+            style: { ...child.props.style, marginBottom: 0 },
           });
         }
-        else {
-          return child;
-        }
-      })
+
+        return child;
+      });
     }
-    //If cardAction comes after cardImage, remove bottom padding from cardImage
-    if (returnChildren.length >= 2 && returnChildren.map(child=> child.type.name).join('').includes('CardImageCardAction')) {
+    // If cardAction comes after cardImage, remove bottom padding from cardImage
+    if (returnChildren.length >= 2 && returnChildren.map(child => child.type.name).join('').includes('CardImageCardAction')) {
       returnChildren = React.Children.map(returnChildren, (child) => {
         if (child.type.name === 'CardImage') {
           return React.cloneElement(child, {
-            style: {...child.props.style, marginBottom: 0}
+            style: { ...child.props.style, marginBottom: 0 },
           });
         }
-        else {
-          return child;
-        }
-      })
+
+        return child;
+      });
     }
-    //If avatarSource is supplied to Card, pass it to first of whoever comes amongst cardTitle and cardContent
+    // If avatarSource is supplied to Card,
+    // pass it to first of whoever comes amongst cardTitle and cardContent
     if (this.props.avatarSource !== undefined && (returnChildren.map(child => child.type.name).includes('CardTitle') || returnChildren.map(child => child.type.name).includes('CardContent'))) {
       const titleIndex = returnChildren.map(child => child.type.name).indexOf('CardTitle');
       const contentIndex = returnChildren.map(child => child.type.name).indexOf('CardContent');
       let toIndex;
       if (titleIndex === -1) {
         toIndex = contentIndex;
-      }
-      else if (contentIndex === -1) {
+      } else if (contentIndex === -1) {
         toIndex = titleIndex;
-      }
-      else {
+      } else {
         toIndex = titleIndex > contentIndex ? contentIndex : titleIndex;
       }
       returnChildren = React.Children.map(returnChildren, (child, index) => {
         if (index === toIndex) {
           return React.cloneElement(child, {
-            avatarSource: this.props.avatarSource
+            avatarSource: this.props.avatarSource,
           });
         }
 
         return child;
-      })
+      });
     }
-    //If mediaSource or isDark(true) is supplied to Card, pass isDark is true to children
+    // If mediaSource or isDark(true) is supplied to Card, pass isDark is true to children
     if (this.props.mediaSource !== undefined || this.props.isDark) {
       returnChildren = React.Children.map(returnChildren, (child) => {
         if (child.type.name === 'CardContent' || child.type.name === 'CardTitle' || child.type.name === 'CardAction') {
@@ -137,7 +133,9 @@ export default class Card extends Component {
                 styles.mediaInsetContainer,
                 { marginTop: this.state.calcOffsetHeight },
               ]}
-              onLayout={e => this.setState({ calcOffsetHeight: e.nativeEvent.layout.width - e.nativeEvent.layout.height })}
+              onLayout={e => this.setState({
+                calcOffsetHeight: e.nativeEvent.layout.width - e.nativeEvent.layout.height,
+              })}
             >
               {this.renderChildren()}
             </View>

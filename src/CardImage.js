@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,9 +11,10 @@ export default class CardImage extends Component {
     super(props);
     this.state = {
       calcHeight: 0,
-    }
+    };
   }
-  render () {
+
+  render() {
     const newStyle = this.props.style || {};
     const newTextStyle = this.props.textStyle || {};
     return (
@@ -27,7 +28,7 @@ export default class CardImage extends Component {
             resizeMode={this.props.resizeMode || 'stretch'}
             resizeMethod={this.props.resizeMethod || 'resize'}
             style={[StyleSheet.absoluteFill, styles.image]}
-          />          
+          />
         )}
         {this.props.source === undefined && this.props.children}
         <View style={[styles.imageContainer, { height: this.state.calcHeight }]}>
@@ -39,6 +40,7 @@ export default class CardImage extends Component {
               {this.props.title}
             </Text>
           )}
+          { /* eslint-disable-next-line max-len */ }
           {this.props.title !== undefined && (!this.props.singleLineTitle || this.props.singleLineTitle === undefined) && (
             <Text style={[styles.imageTitleText, newTextStyle]}>{this.props.title}</Text>
           )}
@@ -77,5 +79,5 @@ const styles = StyleSheet.create({
   imageTitleText: {
     fontSize: 24,
     color: 'rgba(255 ,255 ,255 , 0.87)',
-  }
+  },
 });
