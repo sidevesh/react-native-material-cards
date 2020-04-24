@@ -96,7 +96,7 @@ Then insert the card in your code:
 | ------------- |-------------| -----| -----|
 | `title` | `string` | The button's text, this can be skipped and any custom title or content can be rendered as children | `undefined` |
 | `color` | `string` | The color of button text | `orange` |
-| `onPress` | `function` | The function to be called when button is pressed | `noop` (defined in [`src/utils`](https://github.com/SiDevesh/React-Native-Material-Cards/blob/master/src/utils/index.js)) |
+| `onPress` | `function` | The function to be called when button is pressed | `noop` (defined in [`src/utils`](https://github.com/sidevesh/react-native-material-cards/blob/master/src/utils/index.js)) |
 | `style` | `object` | The style object to be merged with the default style of root container | `{}` |
 | `titleStyle` | `object` | The style object to be merged with the default style of button title | `{}` |
 
