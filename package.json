@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-cards",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A material design card component, customizable and versatile",
   "main": "index.js",
   "scripts": {
